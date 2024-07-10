@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #FFEBF0; /* Soft pink background color */
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    position: fixed; /* Background fixed in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFEBF0; /* Match the body background color */
+    z-index: -1; /* Background behind other elements */
+}
+
+.chat-window {
+    position: relative;
+    width: 60%;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 1; /* Ensure chat window is above the background */
+    overflow: hidden;
+}
+
+.chat-log {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    border-top: 2px solid #FFB7C5;
+    border-bottom: 2px solid #FFB7C5;
+    background-color: #FFF5F8; /* Light pink chat log background */
+    border-radius: 15px 15px 0 0;
+}
+
+.input-area {
+    display: flex;
+    border-top: 2px solid #FFB7C5;
+    background-color: #FFE3E9; /* Light pink input area background */
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+}
+
+#input_field {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    margin-right: 10px;
+    background-color: #FFF5F8; /* Match the chat log background */
+}
+
+#send_button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FFB7C5;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+#send_button:hover {
+    background-color: #FF69B4;
+}
+
+.user-message {
+    background-color: #FFEBF0;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #FFF5F8;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: left;
+}
+
+.avatar {
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+    border-radius: 50%;
+    margin-right: 10px;
+}

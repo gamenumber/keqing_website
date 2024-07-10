@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>각청과의 귀여운 대화</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="chat-window">
+            <div id="chat_log" class="chat-log">
+                <!-- 예시 메시지 -->
+                <div class="bot-message">
+                    <img src="img/keqing_img.png" alt="Keqing" class="avatar">
+                    안녕! 나는 각청이야.
+                </div>
+                <div class="user-message">
+                    <img src="img/dog_img.png" alt="Dog" class="avatar">
+                    반가워! 나는 강아지야.
+                </div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="input_field" placeholder="메시지를 입력하세요...">
+                <button id="send_button">전송</button>
+            </div>
+        </div>
+    </div>
+    <script src="script/jquery-1.12.4.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>
