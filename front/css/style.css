@@ -1,11 +1,17 @@
 @charset "utf-8";
 
+/* Google Fonts 추가 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     height: 100vh;
     overflow: hidden;
     background-color: #FFEBF0; /* Soft pink background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -25,6 +31,7 @@ body {
     height: 100%;
     background-color: #FFEBF0; /* Match the body background color */
     z-index: -1; /* Background behind other elements */
+    animation: fadeIn 1s ease-in-out;
 }
 
 .chat-window {
@@ -38,6 +45,7 @@ body {
     flex-direction: column;
     z-index: 1; /* Ensure chat window is above the background */
     overflow: hidden;
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .chat-log {
@@ -48,6 +56,7 @@ body {
     border-bottom: 2px solid #FFB7C5;
     background-color: #FFF5F8; /* Light pink chat log background */
     border-radius: 15px 15px 0 0;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .input-area {
@@ -67,6 +76,11 @@ body {
     outline: none;
     margin-right: 10px;
     background-color: #FFF5F8; /* Match the chat log background */
+    animation: inputFocus 0.3s ease-in-out;
+}
+
+#input_field:focus {
+    box-shadow: 0 0 10px rgba(255, 183, 197, 0.5);
 }
 
 #send_button {
@@ -78,11 +92,12 @@ body {
     font-weight: bold;
     cursor: pointer;
     outline: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #send_button:hover {
     background-color: #FF69B4;
+    transform: scale(1.05);
 }
 
 .user-message {
@@ -91,6 +106,7 @@ body {
     padding: 10px;
     margin: 5px 0;
     text-align: right;
+    animation: fadeInRight 0.5s ease-in-out;
 }
 
 .bot-message {
@@ -99,6 +115,7 @@ body {
     padding: 10px;
     margin: 5px 0;
     text-align: left;
+    animation: fadeInLeft 0.5s ease-in-out;
 }
 
 .avatar {
@@ -106,4 +123,64 @@ body {
     height: 30px; /* Adjust size as needed */
     border-radius: 50%;
     margin-right: 10px;
+    animation: avatarBounce 0.6s infinite alternate;
+}
+
+/* 애니메이션 효과 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes inputFocus {
+    from {
+        box-shadow: 0 0 0 rgba(255, 183, 197, 0.5);
+    }
+    to {
+        box-shadow: 0 0 10px rgba(255, 183, 197, 0.5);
+    }
+}
+
+@keyframes avatarBounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
 }
