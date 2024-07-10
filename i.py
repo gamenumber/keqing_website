@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import openai
 import os
 from flask_cors import CORS
+from flask import render_template
 
 app = Flask(__name__)
 CORS(app)  # 모든 출처에서의 요청을 허용
@@ -26,7 +27,7 @@ def chat_with_gpt(user_input):
 
 @app.route('/')
 def index():
-    return "Hello, this is the Keqing chatbot backend."
+    return render_template('index.html')
 
 @app.route('/chat', methods=['POST'])
 def chat():
